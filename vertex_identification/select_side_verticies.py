@@ -59,14 +59,13 @@ def save_vertecies():
     for i in core_features:
         file1.write(str(i[0])+" "+str(i[1])+"\n")
     file1.close()
-    
-def main():
 
+def main():
     global root, canvas, core_features, front_width, front_height, \
         side_width, side_height, width1, height1, width2, height2
     core_features = []
     #read images
-    frontal_image_path = "vertex_identification/vincent_front.jpg"
+    frontal_image_path = "vertex_identification/images/vincent_front.jpg"
     frontal_img = Image.open(frontal_image_path)
     front_width, front_height = frontal_img.size
     width1 = 500
@@ -76,7 +75,7 @@ def main():
         width1 = int(height1 * (front_width/front_height))
     frontal_img = frontal_img.resize((width1,height1))
 
-    side_image_path = "vertex_identification/vincent_side.jpg"
+    side_image_path = "vertex_identification/images/vincent_side.jpg"
     side_img = Image.open(side_image_path)
     side_width, side_height = side_img.size
     height2 = height1
