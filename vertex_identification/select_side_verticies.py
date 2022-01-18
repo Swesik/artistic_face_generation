@@ -46,7 +46,7 @@ def add_vertex():
     
     front_point = ((lasx_front/width1)*front_width,(lasy_front/height1)*front_height)
     side_point = (((lasx_side-10-width2)/width2)*side_width,(lasy_front/height2)*side_height)
-
+    
     core_features.append((front_point,side_point))
     
     # lasx_front, lasy_front, lasx_side, lasy_side = -1, -1, -1, -1
@@ -55,7 +55,9 @@ def add_vertex():
 
 def save_vertecies():
     # global canvas
-    canvas.delete("lascircle")
+    file1 = open("save_verticies.txt","a")
+    for i in core_features:
+        file1.write(str(i[0])+" "+str(i[1]))
 
 def main():
 
@@ -101,8 +103,8 @@ def main():
     add_button = Button(canvas, text = "add", command = add_vertex)
     add_button.place(relx = .025, y = height1+20, relwidth = 0.3, height = 80)
 
-    # update_button = Button(canvas, text = "update")
-    # update_button.place(relx = .35, y = height1+20, relwidth = 0.3, height = 80)
+    update_button = Button(canvas, text = "save verticies", command = save_vertecies)
+    update_button.place(relx = .35, y = height1+20, relwidth = 0.3, height = 80)
 
     # cancel_button = Button(canvas, text = "cancel", command = cancel_vertex)
     # cancel_button.place(relx = .675, y = height1+20, relwidth = 0.3, height = 80)
