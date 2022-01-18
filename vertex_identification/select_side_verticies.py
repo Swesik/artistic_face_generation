@@ -57,8 +57,9 @@ def save_vertecies():
     # global canvas
     file1 = open("save_verticies.txt","a")
     for i in core_features:
-        file1.write(str(i[0])+" "+str(i[1]))
-
+        file1.write(str(i[0])+" "+str(i[1])+"\n")
+    file1.close()
+    
 def main():
 
     global root, canvas, core_features, front_width, front_height, \
