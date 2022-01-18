@@ -61,6 +61,9 @@ def save_vertecies():
     file1.close()
 
 def delete_last_vertex():
+    if len(core_features) < 1:
+        print("no points to remove")
+        return
     canvas.delete("circle"+str(len(core_features)-1))
     core_features.pop()
 
@@ -107,11 +110,12 @@ def main():
     add_button = Button(canvas, text = "add", command = add_vertex)
     add_button.place(relx = .025, y = height1+20, relwidth = 0.3, height = 80)
 
-    save_button = Button(canvas, text = "save verticies", command = save_vertecies)
-    save_button.place(relx = .35, y = height1+20, relwidth = 0.3, height = 80)
-
     delete_button = Button(canvas, text = "delete last", command = delete_last_vertex)
-    delete_button.place(relx = .675, y = height1+20, relwidth = 0.3, height = 80)
+    
+    delete_button.place(relx = .35, y = height1+20, relwidth = 0.3, height = 80)
+
+    save_button = Button(canvas, text = "save verticies", command = save_vertecies)
+    save_button.place(relx = .675, y = height1+20, relwidth = 0.3, height = 80)
 
     
     canvas.bind("<Button-1>", select_point)
